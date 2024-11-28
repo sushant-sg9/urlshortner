@@ -24,7 +24,7 @@ Create .env file with:
 
 CopyPORT=3000
 MONGODB_URI=your_mongodb_connection_string
-BASE_URL=http://localhost:3000/api
+BASE_URL=https://urlshortner-theta-orpin.vercel.app
 API Endpoints
 Shorten URL
 
@@ -33,12 +33,12 @@ Request Body: { "originalUrl": "https://example.com" }
 Response:
 
 jsonCopy{
-  "shortUrl": "http://localhost:3000/api/abcd1234",
+  "shortUrl": "https://urlshortner-theta-orpin.vercel.app/api/abcd1234",
   "shortId": "abcd1234"
 }
 Redirect URL
 
-GET /:shortId
+GET /api/:shortId
 Redirects to original URL
 
 URL Statistics
