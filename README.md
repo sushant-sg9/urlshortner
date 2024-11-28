@@ -53,6 +53,8 @@ jsonCopy{
 }
 Running the Application
 
+Clone the repo.
+Install dependencies: npm install
 Development: npm run dev
 Production: npm start
 
@@ -60,7 +62,6 @@ Deployment
 Deployed on Railway: URL Shortener API
 Rate Limiting
 
-100 requests per 15 minutes per IP
 
 Technologies
 
