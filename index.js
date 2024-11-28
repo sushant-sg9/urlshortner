@@ -6,11 +6,6 @@ import urlRoutes from './src/routes/urlRoutes.js';
 
 
 dotenv.config();
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors());
-app.use(express.json());
 const mongoURI = process.env.MONGODB_URI;
 const ConnectDB = async () => {
   try {
@@ -28,6 +23,12 @@ const ConnectDB = async () => {
   }
 }
 ConnectDB()
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(express.json());
+
 
 
 app.get("/", (req, res) => {
