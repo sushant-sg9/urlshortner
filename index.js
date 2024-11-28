@@ -6,7 +6,7 @@ import urlRoutes from './src/routes/urlRoutes.js';
 
 
 dotenv.config();
-const mongoURI = process.env.MONGODB_URI;
+const mongoURI = 'mongodb+srv://sushantghadge2016:Zg8BjIJQF7TdWzU1@cluster0.mk0sf.mongodb.net/';
 const ConnectDB = async () => {
   try {
       const connection = await mongoose.connect(mongoURI, {
