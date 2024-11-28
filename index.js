@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import urlRoutes from './src/routes/urlRoutes.js'; 
-const mongoURI = process.env.MONGODB_URI;
+
 
 dotenv.config();
 const app = express();
@@ -11,14 +11,23 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+const mongoURI = process.env.MONGODB_URI;
+const ConnectDB = async () => {
+  try {
+      const connection = await mongoose.connect(mongoURI, {
+          useUnifiedTopology: true,
+          useNewUrlParser: true
+      });
 
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+      console.log(`MongoDB Connected Successfully: ${connection.connection.host}`);
+  }
+  catch(err) {
+      console.log(`Error: ${err.message}`);
+      process.exit();
 
+  }
+}
+ConnectDB()
 
 
 app.get("/", (req, res) => {
